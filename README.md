@@ -1,6 +1,6 @@
-#Express App template + guide#
+#Express App template + guide
 
-##Initialising the project##
+##Initialising the project
 
 create a directory and navgiate to it
 ```
