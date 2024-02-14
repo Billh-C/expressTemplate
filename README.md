@@ -1,14 +1,14 @@
-#Express App template + guide
+# Express App template + guide
 
-##Initialising the project
+## Initialising the project
 
-create a directory and navgiate to it
+### Create a directory and navgiate to it:
 ```
 mkdir Example
 cd Example
 ```
 
-##initalise a NodeJS application and install necessary modules##
+### initalise a NodeJS application and install necessary modules:
 ```
 npm init
 npm i express cors mssql nodemon
