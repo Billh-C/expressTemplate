@@ -18,3 +18,7 @@ npm i express cors mssql nodemon
 ### **CORS** - Cross Origin Resource Sharing, this is to allow different origins to access the API (Different ports, paths, protocols)
 ### **MSSQL** - Specific module for interacting with mssql databases, *all database systems will have modules and syntaxes that may not be applicable here*
 ### **Nodemon** - Used to refresh while the application in running if source code change is detected
+
+
+
+Be sure to add ```"type": "Module",``` to ```package.json``` to ensure that ESModules are loaded correctly
