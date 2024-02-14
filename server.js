@@ -16,10 +16,10 @@ app.use(express.json()) //parses incoming requests to JSON objects
 
 //example configuration for mssql database
 const sqlConfig = {
-    server: "10.10.1.47",
-    database: "CMG_Live_DB",
-    user: "crystalnine",
-    password: "crystalnine",
+    server: "server",
+    database: "db",
+    user: "user",
+    password: "pass",
     trustServerCertificate: true
 }
 
@@ -29,7 +29,7 @@ const sqlConfig = {
 //GETALL
 app.get('/', async (req, res) => { //sql connection must be async
     const db = await mssql.connect(sqlConfig) //new connection
-    const newquery = "SELECT * FROM "
+    const newquery = "SELECT * FROM table_name"
     db.query(newquery, (err,result) => {//runs a query against the connection with result or error parameters, always returns json object/array
         if(err) return res.json({Message: "Server Error!"});
         return res.json(result.recordset);
@@ -40,7 +40,7 @@ app.get('/', async (req, res) => { //sql connection must be async
 app.get('/read/:Id', async (req, res) => {
     const db = await mssql.connect(sqlConfig)
     const id = req.params.Id;
-    const newquery = "SELECT * FROM BPReport WHERE Id = "+id;
+    const newquery = "SELECT * FROM table_name WHERE Id = "+id;
     db.query(newquery, (err, result) => {
         if(err) return res.json({error: "Server Error!"})
         return res.json(result.recordset);
@@ -78,7 +78,7 @@ app.put('/create', async (req, res) => {
 app.delete('/delete/:Id', async (req, res) => {
     const db = await mssql.connect(sqlConfig)
     const id = req.params.Id;
-    const newquery = "DELETE FROM BPReport WHERE Id = "+id;
+    const newquery = "DELETE FROM table_name WHERE Id = "+id;
     db.query(newquery, (err, result) => {
         if(err) return res.json({error: "Server Error!"})
         return res.json({message: "Deleted "+id+" successfully"});
